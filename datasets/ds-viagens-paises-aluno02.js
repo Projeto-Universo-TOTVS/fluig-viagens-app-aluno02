@@ -1,7 +1,7 @@
 /**
  * Dataset customizado: ds-viagens-paises-aluno02
  * Retorna uma lista fixa de países no formato [codigo ISO-3, nome, sigla ISO-2].
- * Executado server-side (Rhino / ES5).
+
  */
 function createDataset(fields, constraints, sortFields) {
     var dataset = DatasetBuilder.newDataset();
