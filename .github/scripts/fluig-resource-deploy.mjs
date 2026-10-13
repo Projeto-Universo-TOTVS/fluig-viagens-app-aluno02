@@ -27,12 +27,7 @@ async function main() {
     console.log(`- ${dataset}`);
   }
 
-  // ---------------------------------------------------------------------------
-  //  CHAMADAS DE COMANDO DO FLUIG CLI
-  // ---------------------------------------------------------------------------
-
-  // Cole aqui
-    // O script cria um servidor lógico e faz login no CLI antes do export
+  // O script cria um servidor lógico e faz login no CLI antes do export
   // para que os próximos comandos reutilizem a mesma conexão autenticada.
   await runCli([
     "servers",
@@ -79,14 +74,8 @@ async function main() {
       connection.serverName,
     ]);
   }
-
-
-  // ---------------------------------------------------------------------------
-  //  FIM CHAMADAS DE COMANDO DO FLUIG CLI
-  // ---------------------------------------------------------------------------
-
 }
-  
+
 // Lê a configuração mínima do projeto usada para montar o nome do servidor
 // e outros parâmetros auxiliares do deploy.
 async function readConfig() {
@@ -96,12 +85,6 @@ async function readConfig() {
 
 // Monta os dados de conexão a partir das variáveis de ambiente do CI
 // e normaliza host, porta, SSL e nome do servidor.
-
-// ---------------------------------------------------------------------------
-//  METODO GET CONNECTION
-// ---------------------------------------------------------------------------
-
-// Cole aqui
 function getConnection(config) {
   const baseUrl = process.env.FLUIG_BASE_URL?.trim();
   const username = process.env.FLUIG_USERNAME?.trim();
@@ -128,10 +111,6 @@ function getConnection(config) {
   };
 }
 
-// ---------------------------------------------------------------------------
-//  FIM METODO GET CONNECTION
-// ---------------------------------------------------------------------------
-
 // Permite que o pipeline faça deploy seletivo quando FLUIG_DATASET_PATHS
 // estiver preenchido; caso contrário, publica todos os datasets do projeto.
 async function resolveDatasets() {
@@ -145,12 +124,6 @@ async function resolveDatasets() {
 
 // Varre recursivamente a pasta datasets e devolve caminhos relativos,
 // que são os formatos esperados pelo restante do script.
-
-// ---------------------------------------------------------------------------
-//  LISTAGEM DE DATASET
-// ---------------------------------------------------------------------------
-
-// Cole aqui
 async function listDatasets(dir, baseDir = dir) {
   let entries = [];
 
@@ -185,10 +158,6 @@ async function listDatasets(dir, baseDir = dir) {
 
   return files.sort();
 }
-
-// ---------------------------------------------------------------------------
-//  FIM LISTAGEM DE DATASET
-// ---------------------------------------------------------------------------
 
 // Aceita lista manual separada por quebra de linha ou vírgula,
 // mantendo apenas caminhos válidos de datasets JavaScript.
